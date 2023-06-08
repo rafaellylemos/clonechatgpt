@@ -8,7 +8,14 @@ import { useState } from "react";
 
 const Page = () => {
   const [sidebarOpened, setSidebarOpened] = useState(false);
-  const [chatActive, setChatActive] = useState<Chat>(); 
+  const [chatActive, setChatActive] = useState<Chat>({
+    id: '123',
+    title: 'blablabla',
+    messages: [
+      {id: '99', author: 'me', body: 'Opa, tudo bem?'},
+      {id: '100', author: 'ai', body: 'Tudo ótimo! Em que posso te ajudar?'}
+    ]
+  }); 
 
   const openSidebar = () => setSidebarOpened(true);
   const closeSidebar = () => setSidebarOpened(false);
@@ -18,6 +25,10 @@ const Page = () => {
   }
 
   const handleNewChat = () => {
+
+  }
+
+  const handleSendMessege = () => {
 
   }
 
@@ -40,6 +51,10 @@ const Page = () => {
         />
 
         <ChatArea chat={chatActive} />
+
+        <Footer 
+          onSendMessage={handleSendMessege}
+        />
 
       </section>
     </main>

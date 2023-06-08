@@ -1,3 +1,4 @@
+import { ChatMessageItem } from "@/components/ChatMessageItem";
 import { ChatPlaceholder } from "@/components/ChatPlaceholder";
 import { Chat } from "@/types/Chat";
 
@@ -10,9 +11,10 @@ export const ChatArea = ({ chat }: Props) => {
     <section className="flex-auto h-0 overflow-y-scroll">
       {!chat && <ChatPlaceholder />}
       {chat && chat.messages.map(item => (
-        <div>
-          ...
-        </div>
+        <ChatMessageItem 
+          key={item.id}
+          item={item}
+        />
       ))}
     </section>
   )
