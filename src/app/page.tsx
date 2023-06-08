@@ -1,6 +1,7 @@
 "use client"
 
 import { ChatArea } from "@/components/ChatArea";
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
 import { Chat } from "@/types/Chat";
@@ -16,6 +17,7 @@ const Page = () => {
       {id: '100', author: 'ai', body: 'Tudo ótimo! Em que posso te ajudar?'}
     ]
   }); 
+  const [AILoading, setAILoading] = useState(false);
 
   const openSidebar = () => setSidebarOpened(true);
   const closeSidebar = () => setSidebarOpened(false);
@@ -54,6 +56,7 @@ const Page = () => {
 
         <Footer 
           onSendMessage={handleSendMessege}
+          disabled={AILoading}
         />
 
       </section>

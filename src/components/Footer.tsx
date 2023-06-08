@@ -1,9 +1,9 @@
 type Props = {
   disabled: boolean;
-  onSendMessage: (disabled, message: string) => void;
+  onSendMessage: (message: string) => void;
 }
 
-export const Footer = ({ onSendMessage }: Props) => {
+export const Footer = ({ disabled, onSendMessage }: Props) => {
   return (
     <footer className="w-full border-t border-t-gray-600 p-2">
       <div className="max-w-4xl m-auto">
