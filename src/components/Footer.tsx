@@ -1,3 +1,5 @@
+import { ChatMessageInput } from "@/components/ChatMessageInput";
+
 type Props = {
   disabled: boolean;
   onSendMessage: (message: string) => void;
@@ -12,7 +14,7 @@ export const Footer = ({ disabled, onSendMessage }: Props) => {
           onSend={onSendMessage}
         />
         <div className="pt-3 text-center text-xs text-gray-300">
-          Feito por 
+          Feito por {''}
           <a target="_blank" href="https://www.linkedin.com/in/rafaelly-lemos/" className="underline"> 
           Rafaelly Lemos
           </a>. Permitida a cópia e uso para qualqur fim<br/>
