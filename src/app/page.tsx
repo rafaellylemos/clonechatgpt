@@ -4,6 +4,7 @@ import { ChatArea } from "@/components/ChatArea";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
+import { SidebarChatButton } from "@/components/SidebarChatButton";
 import { Chat } from "@/types/Chat";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
@@ -82,6 +83,18 @@ if(!chatActiveId) {
     setAILoading(true);
   }
 
+  const handleSelectChat = () => {
+
+  }
+
+  const handleDeleteChat = () => {
+    
+  }
+
+  const handleEditChat = () => {
+    
+  }
+
   return (
     <main className="flex min-h-screen bg-gpt-gray">
       <Sidebar
@@ -90,7 +103,16 @@ if(!chatActiveId) {
         onClear={handleClearConversations}
         onNewChat={handleNewChat}
       >
-
+        {chatList.map(item => (
+          <SidebarChatButton 
+            key={item.id}
+            chatItem={item}
+            active={item.id === chatActiveId}
+            onClick={handleSelectChat}
+            onDelete={handleDeleteChat}
+            onEdit={handleEditChat}
+          />
+        ))}
       </Sidebar>
       <section className="flex flex-col w-full">
        
