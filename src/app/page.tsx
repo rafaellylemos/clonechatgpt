@@ -83,16 +83,29 @@ if(!chatActiveId) {
     setAILoading(true);
   }
 
-  const handleSelectChat = () => {
+  const handleSelectChat = (id: string) => {
+      if(AILoading) return;
 
+      let item = chatList.find(item => item.id === id);
+      if(item) setChatActiveId(item.id);
+      closeSidebar();
   }
 
-  const handleDeleteChat = () => {
-    
+  const handleDeleteChat = (id: string) => {
+    let chatListClone = [...chatList];
+    let chatIndex = chatListClone.findIndex(item => item.id === id);
+    chatListClone.splice(chatIndex, 1);
+    setChatList(chatListClone);
+    setChatActiveId('');
   }
 
-  const handleEditChat = () => {
-    
+  const handleEditChat = (id: string, newTitle: string) => {
+    if(newTitle) {
+      let chatListClone = [...chatList];
+      let chatIndex = chatListClone.findIndex(item => item.id ===id);
+      chatListClone[chatIndex].title = newTitle;
+      setChatList(chatListClone);
+    }
   }
 
   return (

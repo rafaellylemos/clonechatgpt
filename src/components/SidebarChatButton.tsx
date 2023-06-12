@@ -59,7 +59,7 @@ export const SidebarChatButton = ({ chatItem, active, onClick, onDelete, onEdit}
             />
           }
           {!editing &&
-            <div className="border border-transparent">
+            <div className="border border-transparent truncate">
                 {!deleting && chatItem.title}
                 {deleting && `Delete "${chatItem.title}"`}
             </div>
