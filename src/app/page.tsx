@@ -42,7 +42,7 @@ const Page = () => {
             author:'ai',
             body: response
           });
-         }
+          }
         }
         setChatList(chatListClone);
         setAILoading(false);
